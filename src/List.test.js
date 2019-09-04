@@ -19,8 +19,10 @@ describe('<List />', () => {
         ReactDOM.unmountComponentAtNode(div);
     });
     it('renders this UI as expected', () => {
+        const key = "1";
+        const cards = [{one:'one'}, {two:'two'}, {three: 'three'}];
         // Render the component, as JSON
-        const tree = renderer.create(<List />).toJSON();
+        const tree = renderer.create(<List key={key} cards={cards}/>).toJSON();
         // Check whether it matches the previous snapshot
         // Stored in __snapshots__/Card.test.js.snap
         expect(tree).toMatchSnapshot(); 
